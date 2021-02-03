@@ -24,4 +24,4 @@ function twenty_twenty_one_child_setup() {
 	add_editor_style( 'editor.css' ); // the path to your editor.css file
 }
 
-add_action( 'after_setup_theme', 'twenty_twenty_one_child_setup' );
+add_action( 'after_setup_theme', 'twenty_twenty_one_child_setup', 12 );

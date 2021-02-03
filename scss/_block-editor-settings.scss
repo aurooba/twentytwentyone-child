@@ -1,0 +1,14 @@
+// Base width of design
+.wp-block {
+	max-width: var(--responsive-aligndefault-width);
+}
+
+// Width for wide alignment
+.wp-block[data-align="wide"] {
+	max-width: 1080px;
+}
+
+// Width for full alignment
+.wp-block[data-align="full"] {
+	max-width: none;
+}

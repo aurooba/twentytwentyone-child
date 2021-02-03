@@ -1,0 +1,16 @@
+.entry-content .wp-audio-shortcode,
+.entry-content
+	> *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+*[class*="inner-container"]
+	> *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+.default-max-width {
+	max-width: var(--responsive-aligndefault-width);
+}
+
+.alignwide {
+	max-width: 1080px;
+}
+
+.alignfull {
+	max-width: 100%;
+}

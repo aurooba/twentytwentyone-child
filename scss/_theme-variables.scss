@@ -1,0 +1,6 @@
+:root {
+	--responsive-aligndefault-width: min(
+		calc(100vw - 8 * var(--global--spacing-horizontal)),
+		700px
+	);
+}

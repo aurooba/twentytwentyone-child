@@ -1,17 +1,17 @@
 // Add slugs as the name of each colour and then the hex code
 $palette: (
-  colour: #FF0000,
-  colour-two: #001EFF,
-  colour-three: #00FF00,
-  colour-four: #F6FF00,
+	colour: #59bacc,
+	colour-two: #58ad69,
+	colour-three: #ffbc49,
+	colour-four: #e2574c,
 );
 
 // no need to touch this part, this will create all the necessary classes
 @each $colour in $palette {
-  .has-#{nth($colour, 1)}-background-color {
-    background: nth($colour, 2);
-  }
-  .has-#{nth($colour, 1)}-color {
-    color:nth($colour, 2);
-  }
+	.has-#{nth($colour, 1)}-background-color {
+		background: nth($colour, 2);
+	}
+	.has-#{nth($colour, 1)}-color {
+		color: nth($colour, 2);
+	}
 }

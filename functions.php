@@ -29,6 +29,33 @@ function twenty_twenty_one_child_setup() {
 	// remove theme support for the wide and full  alignment options in the Block Editor
 	// remove_theme_support( 'align-wide' );
 
+	// Editor Color Palette
+	add_theme_support(
+		'editor-color-palette',
+		[
+			[
+				'name'  => __( 'Colour One', 'twenty-twenty-one-child' ),
+				'slug'  => 'colour',
+				'color' => '#59BACC',
+			],
+			[
+				'name'  => __( 'Colour Two', 'twenty-twenty-one-child' ),
+				'slug'  => 'colour-two',
+				'color' => '#58AD69',
+			],
+			[
+				'name'  => __( 'Colour Three', 'twenty-twenty-one-child' ),
+				'slug'  => 'colour-three',
+				'color' => '#FFBC49',
+			],
+			[
+				'name'  => __( 'Colour Four', 'twenty-twenty-one-child' ),
+				'slug'  => 'colour-four',
+				'color' => '#E2574C',
+			],
+		)
+	);
+
 }
 
 add_action( 'after_setup_theme', 'twenty_twenty_one_child_setup', 12 );

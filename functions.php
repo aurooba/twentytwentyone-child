@@ -53,9 +53,32 @@ function twenty_twenty_one_child_setup() {
 				'slug'  => 'colour-four',
 				'color' => '#E2574C',
 			],
-		)
+		]
 	);
+
+	// Disable pesky custom font sizes
+	add_theme_support( 'disable-custom-font-sizes' );
+
+	// Disable pesky custom colours on the fly
+	add_theme_support( 'disable-custom-colors' );
+
+	// Disable pesky custom gradients (cool but not for us)
+	add_theme_support( 'disable-custom-gradients' );
 
 }
 
 add_action( 'after_setup_theme', 'twenty_twenty_one_child_setup', 12 );
+
+
+/**
+ * Disable Drop Cap settings by hooking into the Block Editor settings
+ *
+ * @param array $settings Block Editor settings array
+ * @return array $settings
+ */
+function disable_drop_cap_in_block_editor( $settings ) {
+	$settings['__experimentalFeatures']['global']['typography']['dropCap'] = false;
+	return $settings;
+}
+
+add_filter( 'block_editor_settings', 'disable_drop_cap_in_block_editor' );

@@ -82,3 +82,35 @@ function disable_drop_cap_in_block_editor( $settings ) {
 }
 
 add_filter( 'block_editor_settings', 'disable_drop_cap_in_block_editor' );
+
+/**
+ * Twenty Twenty One Child Block Styles
+ *
+ * @return void
+ */
+function twenty_twenty_one_child_block_styles() {
+
+	// The Emphasis block style adds a border and some padding to a paragraph block
+	register_block_style(
+		'core/paragraph',
+		array(
+			'name'         => 'emphasis',
+			'label'        => __( 'Emphasized Paragraph' ),
+			'inline_style' => '.is-style-emphasis { border: 2px solid #59BACC; padding: 1.5rem; }',
+		)
+	);
+
+	// Registering our Button Style stylesheet so it can be enqueued when needed
+	wp_register_style( 'ttoc-button-style-arrow', get_stylesheet_directory_uri() . '/button-style-arrow.css', '', filemtime( get_stylesheet_directory() . '/button-style-arrow.css' ) );
+
+	// The Arrow block style appends an Arrow to the button text
+	register_block_style(
+		'core/button',
+		array(
+			'name'         => 'arrow',
+			'label'        => __( 'Arrow Appended' ),
+			'style_handle' => 'ttoc-button-style-arrow',
+		)
+	);
+}
+add_action( 'after_setup_theme', 'twenty_twenty_one_child_block_styles' );

@@ -1,0 +1,6 @@
+.wp-block-button.is-style-arrow .wp-block-button__link {
+	&:after {
+		content: '\2192';
+		padding-left: 10px;
+	}
+}

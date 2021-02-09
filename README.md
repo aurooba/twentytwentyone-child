@@ -7,3 +7,9 @@ Now that we have TWO main stylesheets, the command to compile them correctly has
 ```
 sass --style=compressed --error-css --watch --color  scss/style.scss:style.css scss/editor.scss:editor.css
 ```
+
+To compile our `button-style-arrow` stylesheet as well, use the following command:
+
+```
+sass --style=compressed --error-css --watch --color  scss/style.scss:style.css scss/editor.scss:editor.css scss/button-style-arrow.scss:button-style-arrow.css
+```

@@ -112,5 +112,19 @@ function twenty_twenty_one_child_block_styles() {
 			'style_handle' => 'ttoc-button-style-arrow',
 		)
 	);
+
+	/**
+	 * Remove the large style for the quote block.
+	 *
+	 * However, in this case, this won't work because
+	 * this style was not originally registered using
+	 * PHP!
+	 */
+	unregister_block_style( 'core/quote', 'large' );
+
+	/**
+	 * Remove the Arrow style for the Button Block
+	 */
+	unregister_block_style( 'core/button', 'arrow' );
 }
 add_action( 'after_setup_theme', 'twenty_twenty_one_child_block_styles' );

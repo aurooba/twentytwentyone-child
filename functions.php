@@ -128,3 +128,137 @@ function twenty_twenty_one_child_block_styles() {
 	unregister_block_style( 'core/button', 'arrow' );
 }
 add_action( 'after_setup_theme', 'twenty_twenty_one_child_block_styles' );
+
+/**
+ * Create general allowed-list blocks
+ *
+ * @since 0.0.1
+ * @param array $allowed_blocks
+ * @param object $post
+ * @return array $allowed_blocks
+ */
+function general_registered_blocks_curation( $allowed_blocks, $post ) {
+
+	$allowed_blocks = array(
+		'core/image',
+		'core/paragraph',
+		'core/heading',
+		'core/list',
+		'core/quote',
+		'core/pullquote',
+		'core/table',
+		'core/verse',
+		'core/gallery',
+		'core/audio',
+		'core/video',
+		'core/embed',
+		'core/file',
+	);
+
+	return $allowed_blocks;
+
+}
+
+add_filter( 'allowed_block_types', 'general_registered_blocks_curation', 10, 2 );
+
+
+/**
+ * Create allowed-list blocks based on post type
+ *
+ * @since 0.0.1
+ * @param array $allowed_blocks
+ * @param object $post
+ * @return array $allowed_blocks
+ */
+function registered_blocks_curation_by_post_type( $allowed_blocks, $post ) {
+
+	/**
+	 * If you had a Custom Post Type called Portfolio,
+	 * this is how you would limit this set of blocks just
+	 * for the Portfolio posts.
+	 */
+	if ( 'portfolio' === $post->post_type ) :
+		$allowed_blocks = array(
+			'core/image',
+			'core/paragraph',
+			'core/heading',
+			'core/list',
+			'core/quote',
+			'core/pullquote',
+			'core/table',
+			'core/verse',
+			'core/gallery',
+			'core/audio',
+			'core/video',
+			'core/embed',
+			'core/file',
+		);
+	elseif ( 'page' === $post->post_type ) :
+		$allowed_blocks = array(
+			'core/image',
+			'core/paragraph',
+			'core/heading',
+			'core/list',
+			'core/quote',
+			'core/pullquote',
+			'core/embed',
+		);
+	else :
+		$allowed_blocks = array(
+			'core/image',
+			'core/paragraph',
+			'core/heading',
+			'core/list',
+			'core/quote',
+			'core/pullquote',
+			'core/table',
+			'core/verse',
+			'core/gallery',
+			'core/embed',
+			'core/file',
+		);
+	endif;
+
+	return $allowed_blocks;
+
+}
+
+add_filter( 'allowed_block_types', 'registered_blocks_curation_by_post_type', 10, 2 );
+
+/**
+ * Create allowed-list blocks for all post types except Portfolio
+ *
+ * @since 0.0.1
+ * @param array $allowed_blocks
+ * @param object $post
+ * @return array $allowed_blocks
+ */
+function registered_blocks_curation_for_all_but_portfolio( $allowed_blocks, $post ) {
+
+	/**
+	 * If the current post type is NOT portfolio, pass
+	 * this list of allowed blocks
+	 */
+	if ( 'portfolio' !== $post->post_type ) :
+		$allowed_blocks = array(
+			'core/image',
+			'core/paragraph',
+			'core/heading',
+			'core/list',
+			'core/quote',
+			'core/pullquote',
+			'core/table',
+			'core/verse',
+			'core/gallery',
+			'core/audio',
+			'core/video',
+			'core/embed',
+			'core/file',
+		);
+	endif;
+
+	return $allowed_blocks;
+
+}
+
+add_filter( 'allowed_block_types', 'registered_blocks_curation_for_all_but_portfolio', 10, 2 );

@@ -1,7 +1,7 @@
 /*!
 Theme Name: Twenty Twenty One Child
 Theme URI: https://aurooba.com
-Description: Twenty Twenty One Child Theme
+description: Twenty Twenty One Child Theme
 Author: Aurooba Ahmed
 Author URI: https://aurooba.com
 Template: twentytwentyone
@@ -14,4 +14,9 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready
 Text Domain: twenty-twenty-one-child
-*/:root{--responsive-aligndefault-width: min( calc(100vw - 8 * var(--global--spacing-horizontal)), 700px )}.has-colour-background-color{background:#59bacc}.has-colour-color{color:#59bacc}.has-colour-two-background-color{background:#58ad69}.has-colour-two-color{color:#58ad69}.has-colour-three-background-color{background:#ffbc49}.has-colour-three-color{color:#ffbc49}.has-colour-four-background-color{background:#e2574c}.has-colour-four-color{color:#e2574c}.entry-content .wp-audio-shortcode,.entry-content>*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),*[class*=inner-container]>*:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),.default-max-width{max-width:var(--responsive-aligndefault-width)}.alignwide{max-width:1080px}.alignfull{max-width:100%}.wp-block-image.is-style-twentytwentyone-image-frame img{border-style:dashed}/*# sourceMappingURL=style.css.map */
+*/
+:root{--responsive-aligndefault-width:min(
+  	calc(100vw - 8 * var(--global--spacing-horizontal)),
+  	700px
+  )}.has-colour-background-color{background:red!important}.has-colour-color{color:red!important}.has-colour-two-background-color{background:#001eff!important}.has-colour-two-color{color:#001eff!important}.has-colour-three-background-color{background:#0f0!important}.has-colour-three-color{color:#0f0!important}.has-colour-four-background-color{background:#f6ff00!important}.has-colour-four-color{color:#f6ff00!important}.default-max-width,.entry-content .wp-audio-shortcode,.entry-content>:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),[class*=inner-container]>:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce){max-width:var(--responsive-aligndefault-width)}.alignwide{max-width:1080px}.alignfull{max-width:100%}.wp-block-image.is-style-twentytwentyone-image-frame img{border-style:dashed}
+/*# sourceMappingURL=style.css.map */

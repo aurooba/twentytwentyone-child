@@ -9,9 +9,9 @@ $palette: (
 // no need to touch this part, this will create all the necessary classes
 @each $colour in $palette {
 	.has-#{nth($colour, 1)}-background-color {
-		background: nth($colour, 2);
+		background: nth($colour, 2) !important;
 	}
 	.has-#{nth($colour, 1)}-color {
-		color: nth($colour, 2);
+		color: nth($colour, 2) !important;
 	}
 }

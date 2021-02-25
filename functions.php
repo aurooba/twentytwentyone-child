@@ -53,7 +53,7 @@ function twenty_twenty_one_child_setup() {
 				'slug'  => 'colour-four',
 				'color' => '#E2574C',
 			],
-		)
+		] // credit to @colorful-tones for catching this mistake!
 	);
 
 }

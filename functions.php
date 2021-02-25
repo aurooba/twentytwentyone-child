@@ -297,7 +297,6 @@ add_action( 'init', 'twenty_twenty_one_child_block_patterns' );
  */
 function get_block_pattern_names_list() {
 	$get_patterns  = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
-	$pattern_names = array();
 	$pattern_names = array_map(
 		function ( array $pattern ) {
 			return $pattern['name'];

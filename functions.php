@@ -262,3 +262,47 @@ function registered_blocks_curation_for_all_but_portfolio( $allowed_blocks, $pos
 }
 
 add_filter( 'allowed_block_types', 'registered_blocks_curation_for_all_but_portfolio', 10, 2 );
+
+/**
+ * Block Pattern registrations and deregistrations
+ *
+ * @return void
+ */
+function twenty_twenty_one_child_block_patterns() {
+
+	// dump a list of all the registered block patterns
+	// echo '<pre>' . var_export(get_block_pattern_names_list(), true) . '</pre>';
+
+	// Remove these two patterns
+	unregister_block_pattern( 'core/heading-paragraph' );
+	unregister_block_pattern( 'core/large-header-button' );
+
+	// Remove all Core Patterns
+	$registered_patterns = get_block_pattern_names_list();
+	foreach ( $registered_patterns as $pattern_name ) {
+		// if the name starts with 'core' remove it
+		if ( substr( $pattern_name, 0, strlen( 'core' ) ) === 'core' ) {
+			unregister_block_pattern( $pattern_name );
+		}
+	}
+}
+
+add_action( 'init', 'twenty_twenty_one_child_block_patterns' );
+
+
+/**
+ * Get an array of the names of all registered block patterns
+ *
+ * @return array $pattern_names
+ */
+function get_block_pattern_names_list() {
+	$get_patterns = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
+	$pattern_names    = array();
+	$pattern_names = array_map(
+		function ( array $pattern ) {
+			return $pattern['name'];
+		},
+		$get_patterns
+	);
+	return $pattern_names;
+}

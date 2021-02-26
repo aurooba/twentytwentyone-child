@@ -153,6 +153,9 @@ function general_registered_blocks_curation( $allowed_blocks, $post ) {
 		'core/video',
 		'core/embed',
 		'core/file',
+		'core/buttons',
+		'core/button',
+		'core/group',
 	);
 
 	return $allowed_blocks;
@@ -202,6 +205,9 @@ function registered_blocks_curation_by_post_type( $allowed_blocks, $post ) {
 			'core/quote',
 			'core/pullquote',
 			'core/embed',
+			'core/buttons',
+			'core/button',
+			'core/group',
 		);
 	else :
 		$allowed_blocks = array(
@@ -254,6 +260,9 @@ function registered_blocks_curation_for_all_but_portfolio( $allowed_blocks, $pos
 			'core/video',
 			'core/embed',
 			'core/file',
+			'core/buttons',
+			'core/button',
+			'core/group',
 		);
 	endif;
 
@@ -285,6 +294,25 @@ function twenty_twenty_one_child_block_patterns() {
 			unregister_block_pattern( $pattern_name );
 		}
 	}
+
+	// Register a Podcast category for Block Patterns
+	register_block_pattern_category(
+		'podcast',
+		array( 'label' => __( 'Podcast', 'twenty-twenty-one-child' ) )
+	);
+
+	// Register a simple Podcast CTA block pattern
+	register_block_pattern(
+		'twenty-twenty-one-child/podcast-cta',
+		array(
+			'title'      => __( 'Call to Action' ),
+			'categories' => array( 'podcast' ),
+			'content'    => "<!-- wp:group {\"align\":\"full\",\"className\":\"is-style-twentytwentyone-border\",\"backgroundColor\":\"colour-three\"} -->\n<div class=\"wp-block-group alignfull is-style-twentytwentyone-border has-colour-three-background-color has-background\"><div class=\"wp-block-group__inner-container\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":3} -->\n<h3 class=\"has-text-align-center\">Get exclusive podcast episodes in your inbox</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"align\":\"center\"} -->\n<p class=\"has-text-align-center\">Every week, Kara records a podcast episode exclusively for subscribers, diving deep into the latest SEO strategies she\'s experimenting with. Get bleeding edge content once a week in your inbox.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:buttons {\"align\":\"center\"} -->\n<div class=\"wp-block-buttons aligncenter\"><!-- wp:button {\"borderRadius\":0,\"className\":\"is-style-outline\"} -->\n<div class=\"wp-block-button is-style-outline\"><a class=\"wp-block-button__link no-border-radius\">Get access to the latest episode right away</a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div></div>\n<!-- /wp:group -->",
+		)
+	);
+
+	include get_stylesheet_directory() . '/block-patterns/podcast-cta.php';
+
 }
 
 add_action( 'init', 'twenty_twenty_one_child_block_patterns' );
